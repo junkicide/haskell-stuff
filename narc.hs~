@@ -1,0 +1,6 @@
+narcissistic :: Integral n => n -> Bool
+narcissistic n = n == sum $ map (^(length d)) d
+                  where
+                  d = dig n
+
+dig n = map (\x -> read (x:[])::Int) $ show n

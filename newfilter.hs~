@@ -1,0 +1,4 @@
+filter :: (a -> Boolean) -> [a] -> [a]
+filter f [] = []
+filter f (x: xs) | f x == True = x : filter f xs
+                 | f x == False = filter f xs

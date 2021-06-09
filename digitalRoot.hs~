@@ -1,0 +1,5 @@
+module DigitalRoot where
+
+digitalRoot :: Integral a => a -> a
+digitalRoot x | x>10 digitalRoot $ sum $ map (\x -> read (x:[]) :: Int) $ show x
+              | x<10 x
