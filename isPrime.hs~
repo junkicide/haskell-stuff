@@ -1,0 +1,7 @@
+
+isPrime :: Integer -> Bool
+isPrime x =  or [x `mod` d > 0 | d <- sieve [2..n]] 
+              where
+               n = ceiling $ sqrt $ fromInteger x
+               sieve (p : xs) = p : sieve [x | x <- xs, x `mod` p > 0]
+               sieve [] = []

@@ -1,0 +1,14 @@
+evalexp:: [Integer] -> [Integer] -> Integer -> Integer
+evalexp x y z =  sum $ zipWith (*) (zipWith (/) (map fromInteger x) [l+1 | l <- y]) [z^(k+1) | k <- y]
+
+area::[Integer] -> [Integer] -> [Integer] -> Integer
+area x y z = (evalexp  x y (head z))  - (evalexp x y (tail z))
+
+main:: String -> String -> String -> IO()
+main = do
+        a <- getLine
+        b <- getLine
+        c <- getLine
+        mapM_ print (area (map read $ words a:: [Integer]) (map read $ words b :: [Integer]) (map read $ words c :: [Integer] ))
+
+

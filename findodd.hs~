@@ -1,0 +1,3 @@
+findOdd :: [Int] -> Int
+findOdd (x:[]) = x
+findOdd (x:xs) = if odd $ length (filter (x/=) xs) then findOdd (xs) else x

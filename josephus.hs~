@@ -1,0 +1,6 @@
+josephus :: [a] -> Int -> [a]
+josephus [x] k = [x] 
+josephus xs k = head d: josephus l (1 + (k-1) `mod` ((length l) -1) )
+                where
+                d = drop (k-1) xs
+                l = (drop k xs) ++(take (k-1) xs)

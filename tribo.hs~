@@ -1,0 +1,5 @@
+
+tribonacci :: Num a => (a, a, a) -> Int -> [a]
+tribonacci (a, b, c) n = take n $ tribo (a, b, c) 
+tribo (a, b, c) = a: b: c: tribo (a + b + c, b+c + a+ b + c, 3*c + 2*b + a)
+tribo (0,0,0) = []

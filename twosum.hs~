@@ -1,0 +1,11 @@
+import Data.List (find)
+import Data.Maybe (fromMaybe)
+module TwoSum (twoSum) where
+
+twoSum :: [Int] -> Int -> (Int,Int)
+twoSum l n = (pos1-1, pos2)
+  where
+    pos1 = length br
+    pos2 = find (last $ br) l 
+    br = fst $ break (\x -> find l!!x>-1) [ p | p <- [1..(length l)]]
+find x l = fromMaybe -1 (fst <$> (find (==x . snd) zip [0..]) l
